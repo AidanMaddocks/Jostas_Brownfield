@@ -2,8 +2,57 @@
         --bs-dark: #333333; /* Dark text/accent */
         --bs-light: #fdfaf7; /* Off-white background */
         --color-hero-bg: #b97652; /* Burnt orange/terracotta */
-        --color-cta: #8a4e32; /* Slightly darker CTA button */
+        --color-cta: hsl(19, 47%, 37%); /* Slightly darker CTA button */
     }
+
+    /* Base link style */
+.nav-link {
+    position: relative;
+    padding: 8px 16px !important;
+    border-radius: 8px;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    transition: color 0.2s ease, background 0.2s ease;
+    color: #555 !important;
+    opacity: 1 !important; /* remove Bootstrap's opacity utility */
+}
+
+/* The underline for each link */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 16px;
+    right: 16px;
+    height: 2px;
+    background: #d41a1a;
+    border-radius: 2px;
+    opacity: 0;
+    transform: scaleX(0);
+    transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hovered link */
+.nav-link:hover {
+    color: #d41a1a !important;
+    background: rgba(91, 200, 245, 0.08);
+}
+
+.nav-link:hover::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+/* Non-hovered links get a faint underline to "connect" them */
+.navbar-nav:has(.nav-link:hover) .nav-link:not(:hover)::after {
+    opacity: 1;
+    transform: scaleX(1);
+    background: rgba(91, 200, 245, 0.2);
+}
+
+.navbar-nav:has(.nav-link:hover) .nav-link:not(:hover) {
+    color: #999 !important;
+}
 
     body {
         font-family: 'Poppins', sans-serif;
@@ -83,26 +132,26 @@
     }
 
     /* ... (Existing :root variables and body styles from the previous response) ... */
-
-    /* Custom styles for the service cards */
     .service-card {
-        border: none; /* Remove default Bootstrap card border */
+        border: none;
         transition: transform 0.3s ease;
         min-height: 150px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
     }
 
     .service-card:hover {
-        transform: translateY(-5px); /* Subtle lift on hover */
+        transform: translateY(-5px);
     }
-
     .card-icon {
         /* Placeholder for actual icon styling */
         width: 40px;
         height: 40px;
+        padding: 7px;
         background-color: var(--color-cta); /* Use the accent color for icons */
         border-radius: 50%;
         /* Add properties to center an actual icon inside if used */
