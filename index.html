@@ -103,6 +103,39 @@
 
             <h2 class="display-6 fw-bold text-dark mb-4">Portfolio</h2>
 
+            <!-- Filter buttons -->
+            <div class="filter-group mb-4">
+                <input type="radio" name="filter" id="filter-all" class="filter-input" checked>
+                <input type="radio" name="filter" id="filter-residential" class="filter-input">
+                <input type="radio" name="filter" id="filter-commercial" class="filter-input">
+                <input type="radio" name="filter" id="filter-interior" class="filter-input">
+                <input type="radio" name="filter" id="filter-exterior" class="filter-input">
+
+                <div class="filter-buttons">
+                    <label for="filter-all" class="filter-btn">All</label>
+                    <label for="filter-residential" class="filter-btn">Residential</label>
+                    <label for="filter-commercial" class="filter-btn">Commercial</label>
+                    <label for="filter-interior" class="filter-btn">Interior</label>
+                    <label for="filter-exterior" class="filter-btn">Exterior</label>
+                </div>
+            </div>
+
+            <!-- Portfolio images — tag each with a category class -->
+            <div class="portfolio-grid">
+                <div class="portfolio-item residential">
+                    <img src="/assets/images/Image1.png" alt="Residential project">
+                </div>
+                <div class="portfolio-item interior">
+                    <img src="/assets/images/Image2.png" alt="Interior project">
+                </div>
+                <div class="portfolio-item commercial">
+                    <img src="/assets/images/Image3.png" alt="Commercial project">
+                </div>
+                <div class="portfolio-item exterior">
+                    <img src="/assets/images/Image5.png" alt="Exterior project">
+                </div>
+            </div>
+
             <div class="row g-4">
                 <div class="col-12 mb-4">
                     <div class="portfolio-image-container" style="height: 400px; background-color: #e8d0bd;">

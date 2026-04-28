@@ -314,3 +314,71 @@ h1, h2, h3, h4, h5, h6, .display-3, .display-6 {
         font-size: 3rem;
     }
 }
+
+/* Hide the actual radio inputs */
+.filter-input {
+    display: none;
+}
+
+/* Filter button styling */
+.filter-btn {
+    display: inline-block;
+    padding: 8px 20px;
+    margin: 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #555;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--color-cta);
+    color: var(--color-cta);
+}
+
+/* Active filter button — red fill when selected */
+#filter-all:checked ~ .filter-buttons label[for="filter-all"],
+#filter-residential:checked ~ .filter-buttons label[for="filter-residential"],
+#filter-commercial:checked ~ .filter-buttons label[for="filter-commercial"],
+#filter-interior:checked ~ .filter-buttons label[for="filter-interior"],
+#filter-exterior:checked ~ .filter-buttons label[for="filter-exterior"] {
+    background-color: var(--color-cta);
+    border-color: var(--color-cta);
+    color: white;
+}
+
+/* Portfolio grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.portfolio-item {
+    overflow: hidden;
+    height: 260px;
+    border-radius: 4px;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.04);
+}
+
+/* Hide items that don't match the active filter */
+#filter-residential:checked ~ .portfolio-grid .portfolio-item:not(.residential),
+#filter-commercial:checked ~ .portfolio-grid .portfolio-item:not(.commercial),
+#filter-interior:checked ~ .portfolio-grid .portfolio-item:not(.interior),
+#filter-exterior:checked ~ .portfolio-grid .portfolio-item:not(.exterior) {
+    display: none;
+}
